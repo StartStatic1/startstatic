@@ -10,35 +10,32 @@
   "orientation": "portrait",
   "dir": "ltr",
   "lang": "pt-BR",
-  "categories": [
-    "entertainment",
-    "utilities"
-  ],
+  "categories": ["entertainment", "utilities"],
   "icons": [
     {
-      "src": "img/startstatic-logo.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
+      "src": "img/launchericon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "img/startstatic-logo.jpg",
+      "src": "img/launchericon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "img/startstatic-logo.jpg",
+      "src": "img/launchericon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "img/startstatic-logo.jpg",
+      "src": "img/launchericon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "form_factor": "narrow"
     }
   ]
