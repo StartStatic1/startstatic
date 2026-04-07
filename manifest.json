@@ -10,7 +10,10 @@
   "orientation": "portrait",
   "dir": "ltr",
   "lang": "pt-BR",
-  "categories": ["entertainment", "utilities"],
+  "categories": [
+    "entertainment",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "img/startstatic-logo.jpg",
