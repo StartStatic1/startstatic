@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "StartStatic Hub",
   "short_name": "StartStatic",
   "description": "Hub Premium de Páginas Estáticas e Parceiros",
@@ -6,11 +7,36 @@
   "display": "standalone",
   "background_color": "#050810",
   "theme_color": "#00ff88",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "pt-BR",
+  "categories": ["entertainment", "utilities"],
   "icons": [
     {
       "src": "img/startstatic-logo.jpg",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "img/startstatic-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/startstatic-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "img/startstatic-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
     }
   ]
 }
