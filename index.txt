@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARTSTATIC | Hub de Projetos</title>
+    <style>
+        :root {
+            --primary: #00ff88; /* Verde neon do APK Bugado */
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+        }
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-size: 3rem; color: var(--primary); margin-bottom: 5px; }
+        header p { opacity: 0.8; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card h3 { margin: 15px 0; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .parceria { border: 2px solid var(--primary); box-shadow: 0 0 15px var(--primary); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>STARTSTATIC</h1>
+        <p>Desenvolvimento de Páginas Estáticas & Portfólio de Canais</p>
+    </header>
+
+    <div class="container">
+        <div class="card parceria">
+            <img src="img/apk-bugado.jpg" alt="APK Bugado">
+            <h3>APK BUGADO</h3>
+            <p>Parceria Principal - Grupo VIP</p>
+            <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn">ACESSAR AGORA</a>
+        </div>
+
+        <div class="card">
+            <img src="img/cine-sky.jpg" alt="Cine Sky">
+            <h3>CINE SKY</h3>
+            <p>Resumos e Dicas no Kwai</p>
+            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn">VER CANAL</a>
+        </div>
+
+        <div class="card">
+            <img src="img/narrando.jpg" alt="Narrando pra vc">
+            <h3>NARRANDO PRA VC</h3>
+            <p>Histórias e Edições Únicas</p>
+            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn">VER CANAL</a>
+        </div>
+
+        <div class="card">
+            <img src="img/movie-pixel.jpg" alt="Movie Pixel">
+            <h3>MOVIE PIXEL</h3>
+            <p>TikTok & YouTube de Filmes</p>
+            <a href="https://www.tiktok.com/@moviepixelofc" class="btn">VER TIKTOK</a>
+        </div>
+    </div>
+
+</body>
+</html>
