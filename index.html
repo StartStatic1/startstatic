@@ -3,187 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STARTSTATIC | Hub de Projetos</title>
+    <title>STARTSTATIC | ULTRA HUB</title>
     <style>
         :root {
-            --primary: #00ff88; /* Verde neon do StartStatic/Telegram */
-            --youtube: #ff0000;
-            --tiktok: #00f2fe;
-            --kwai: #ff7e00;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
+            --primary: #00ff88;
+            --primary-glow: rgba(0, 255, 136, 0.6);
+            --bg: #050810;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --yt: #ff0000;
+            --tk: #00f2fe;
+            --kw: #ff7e00;
         }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
             background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, #0f172a 0%, transparent 50%);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            min-height: 100vh;
         }
+
+        /* ANIMAÇÃO DE ENTRADA */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         header {
             text-align: center;
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 800px;
-        }
-        header h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 5px; letter-spacing: 2px; }
-        header p { opacity: 0.8; margin-bottom: 25px; font-size: 1.1rem; }
-
-        /* BOTÃO PRINCIPAL DO STARTSTATIC */
-        .btn-master {
-            display: block;
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto 40px auto;
-            padding: 16px 20px;
-            background: var(--primary);
-            color: black;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 900;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-            transition: transform 0.2s;
-        }
-        .btn-master:hover { transform: scale(1.05); }
-
-        .section-title {
-            text-align: center;
-            width: 100%;
-            max-width: 1000px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            color: #94a3b8;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
             margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        header p {
+            opacity: 0.6;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* O BOTÃO ULTRA (GRADIENTE ANIMADO) */
+        .btn-ultra {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 20px auto 50px;
+            background: linear-gradient(45deg, #00ff88, #00bd65, #00ff88);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px var(--primary-glow);
+            transition: 0.3s;
+            animation: gradientMove 3s infinite linear, fadeIn 1s ease-out;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .btn-ultra:active { transform: scale(0.95); }
+
+        /* SEÇÕES */
+        .section-label {
+            width: 100%;
+            max-width: 1000px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-label::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(to right, var(--primary), transparent);
+        }
+
+        /* GRID DE CARDS COM EFEITO GLASS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 50px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 20px 10px;
             text-align: center;
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeIn 1.2s ease-out;
         }
-        .card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
 
-        /* A MÁGICA DAS FOTOS REDONDAS */
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
         .card img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%; /* Transforma num círculo perfeito */
-            object-fit: cover; /* Foca no centro e não distorce */
-            object-position: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid #334155; 
-            background-color: #000;
+            border: 2px solid transparent;
+            padding: 3px;
         }
 
-        /* Cores das bordas das fotos baseadas na Rede Social */
-        .card.youtube img { border-color: var(--youtube); }
-        .card.tiktok img { border-color: var(--tiktok); }
-        .card.kwai img { border-color: var(--kwai); }
-        .card.telegram img { border-color: var(--primary); }
+        /* BORDAS NEON POR TIPO */
+        .yt img { border-color: var(--yt); box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
+        .tk img { border-color: var(--tk); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+        .kw img { border-color: var(--kw); box-shadow: 0 0 15px rgba(255, 126, 0, 0.3); }
 
-        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        .card p { margin: 0 0 20px 0; font-size: 0.9rem; opacity: 0.7; }
+        .card h3 {
+            font-size: 1rem;
+            margin: 5px 0;
+            font-weight: 800;
+        }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #334155;
-            color: white;
+        .card p {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-bottom: 15px;
+            height: 30px;
+        }
+
+        .btn-card {
+            display: block;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
             text-decoration: none;
-            border-radius: 20px;
-            font-weight: bold;
-            transition: background 0.3s;
-            width: 70%;
-            margin-top: auto;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Cores dos botões ao passar o dedo/mouse */
-        .card.youtube .btn:hover { background: var(--youtube); }
-        .card.tiktok .btn:hover { background: var(--tiktok); color: black; }
-        .card.kwai .btn:hover { background: var(--kwai); }
-        .card.telegram .btn:hover { background: var(--primary); color: black; }
-
-        /* Estilo para destacar a Parceria lá embaixo */
-        .parceria {
-            border: 1px dashed var(--primary);
-            background: rgba(0, 255, 136, 0.05);
+        .card:hover .btn-card {
+            background: #fff;
+            color: #000;
         }
+
+        /* PARCERIA ULTRA */
+        .partner-area {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 0, 0, 0.5));
+            border: 1px solid var(--primary);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+            margin-bottom: 20px;
+        }
+
+        .btn-partner {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 900;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px var(--primary-glow);
+        }
+
     </style>
 </head>
 <body>
 
     <header>
         <h1>STARTSTATIC</h1>
-        <p>Páginas Estáticas & Edições de Vídeo</p>
-        
-        <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn-master">ENTRAR NO GRUPO TELEGRAM</a>
+        <p>PREMIUM STATIC PAGES</p>
     </header>
 
-    <h2 class="section-title">NOSSOS CANAIS</h2>
-    
-    <div class="container">
-        <div class="card youtube">
+    <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn-ultra">
+        🚀 ENTRAR NO GRUPO VIP
+    </a>
+
+    <div class="section-label">Nossos Canais</div>
+
+    <div class="grid">
+        <div class="card yt">
             <img src="img/a1-filmes.jpg" alt="A1 Filmes">
             <h3>A1 FILMES</h3>
-            <p>O melhor do cinema no YouTube</p>
-            <a href="https://youtube.com/@a1filmesofc?si=7w5iYmJevjk-WPQZ" class="btn">INSCREVER-SE</a>
+            <p>Cinema de Elite no YouTube</p>
+            <a href="https://youtube.com/@a1filmesofc?si=7w5iYmJevjk-WPQZ" class="btn-card">INSCREVER-SE</a>
         </div>
 
-        <div class="card tiktok">
+        <div class="card tk">
             <img src="img/movie-pixel.jpg" alt="Movie Pixel">
             <h3>MOVIE PIXEL</h3>
-            <p>Curiosidades e cenas marcantes</p>
-            <a href="https://www.tiktok.com/@moviepixelofc" class="btn">SEGUIR TIKTOK</a>
+            <p>O seu canal de filmes</p>
+            <a href="https://www.tiktok.com/@moviepixelofc" class="btn-card">SEGUIR AGORA</a>
         </div>
 
-        <div class="card kwai">
+        <div class="card kw">
             <img src="img/cine-sky.jpg" alt="Cine Sky">
             <h3>CINE SKY</h3>
-            <p>Resumos e Dicas no Kwai</p>
-            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn">VER KWAI</a>
+            <p>Resumos Épicos no Kwai</p>
+            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn-card">VER CANAL</a>
         </div>
 
-        <div class="card kwai">
+        <div class="card kw">
             <img src="img/narrando.jpg" alt="Narrando pra vc">
             <h3>NARRANDO PRA VC</h3>
-            <p>Histórias e Edições Únicas</p>
-            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn">VER KWAI</a>
+            <p>Histórias que prendem</p>
+            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn-card">VER CANAL</a>
         </div>
     </div>
 
-    <h2 class="section-title">PARCERIA</h2>
-    
-    <div class="container" style="display: flex; justify-content: center;">
-        <div class="card telegram parceria" style="max-width: 300px; width: 100%;">
+    <div class="section-label">Parceiro Oficial</div>
+
+    <div class="partner-area">
+        <div class="partner-card">
             <img src="img/apk-bugado.jpg" alt="APK Bugado">
-            <h3>APK BUGADO</h3>
-            <p>Parceiro Oficial</p>
-            <a href="https://t.me/ApkBugado" class="btn">ACESSAR APK</a>
+            <h2 style="margin: 0; font-size: 1.8rem; color: var(--primary);">APK BUGADO</h2>
+            <p style="opacity: 0.7; margin-top: 5px;">Mods, Apps e Tecnologia</p>
+            <a href="https://t.me/ApkBugado" class="btn-partner">ACESSAR AGORA</a>
         </div>
     </div>
+
+    <footer style="margin: 50px 0 20px; opacity: 0.3; font-size: 0.7rem;">
+        &copy; 2024 STARTSTATIC - BEYOND ULTRA EDITION
+    </footer>
 
 </body>
 </html>
