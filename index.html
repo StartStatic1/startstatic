@@ -6,89 +6,182 @@
     <title>STARTSTATIC | Hub de Projetos</title>
     <style>
         :root {
-            --primary: #00ff88; /* Verde neon do APK Bugado */
+            --primary: #00ff88; /* Verde neon do StartStatic/Telegram */
+            --youtube: #ff0000;
+            --tiktok: #00f2fe;
+            --kwai: #ff7e00;
             --bg: #0f172a;
             --card-bg: #1e293b;
         }
         body {
             background-color: var(--bg);
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
         }
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 3rem; color: var(--primary); margin-bottom: 5px; }
-        header p { opacity: 0.8; }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
+        header {
             text-align: center;
-            padding-bottom: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card h3 { margin: 15px 0; }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
+        header h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 5px; letter-spacing: 2px; }
+        header p { opacity: 0.8; margin-bottom: 25px; font-size: 1.1rem; }
+
+        /* BOTÃO PRINCIPAL DO STARTSTATIC */
+        .btn-master {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 40px auto;
+            padding: 16px 20px;
             background: var(--primary);
             color: black;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 30px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transition: transform 0.2s;
         }
-        .parceria { border: 2px solid var(--primary); box-shadow: 0 0 15px var(--primary); }
+        .btn-master:hover { transform: scale(1.05); }
+
+        .section-title {
+            text-align: center;
+            width: 100%;
+            max-width: 1000px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+
+        /* A MÁGICA DAS FOTOS REDONDAS */
+        .card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%; /* Transforma num círculo perfeito */
+            object-fit: cover; /* Foca no centro e não distorce */
+            object-position: center;
+            margin-bottom: 15px;
+            border: 3px solid #334155; 
+            background-color: #000;
+        }
+
+        /* Cores das bordas das fotos baseadas na Rede Social */
+        .card.youtube img { border-color: var(--youtube); }
+        .card.tiktok img { border-color: var(--tiktok); }
+        .card.kwai img { border-color: var(--kwai); }
+        .card.telegram img { border-color: var(--primary); }
+
+        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
+        .card p { margin: 0 0 20px 0; font-size: 0.9rem; opacity: 0.7; }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 70%;
+            margin-top: auto;
+        }
+
+        /* Cores dos botões ao passar o dedo/mouse */
+        .card.youtube .btn:hover { background: var(--youtube); }
+        .card.tiktok .btn:hover { background: var(--tiktok); color: black; }
+        .card.kwai .btn:hover { background: var(--kwai); }
+        .card.telegram .btn:hover { background: var(--primary); color: black; }
+
+        /* Estilo para destacar a Parceria lá embaixo */
+        .parceria {
+            border: 1px dashed var(--primary);
+            background: rgba(0, 255, 136, 0.05);
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>STARTSTATIC</h1>
-        <p>Desenvolvimento de Páginas Estáticas & Portfólio de Canais</p>
+        <p>Páginas Estáticas & Edições de Vídeo</p>
+        
+        <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn-master">ENTRAR NO GRUPO TELEGRAM</a>
     </header>
 
+    <h2 class="section-title">NOSSOS CANAIS</h2>
+    
     <div class="container">
-        <div class="card parceria">
-            <img src="img/apk-bugado.jpg" alt="APK Bugado">
-            <h3>APK BUGADO</h3>
-            <p>Parceria Principal - Grupo VIP</p>
-            <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn">ACESSAR AGORA</a>
+        <div class="card youtube">
+            <img src="img/a1-filmes.jpg" alt="A1 Filmes">
+            <h3>A1 FILMES</h3>
+            <p>O melhor do cinema no YouTube</p>
+            <a href="https://youtube.com/@a1filmesofc?si=7w5iYmJevjk-WPQZ" class="btn">INSCREVER-SE</a>
         </div>
 
-        <div class="card">
+        <div class="card tiktok">
+            <img src="img/movie-pixel.jpg" alt="Movie Pixel">
+            <h3>MOVIE PIXEL</h3>
+            <p>Curiosidades e cenas marcantes</p>
+            <a href="https://www.tiktok.com/@moviepixelofc" class="btn">SEGUIR TIKTOK</a>
+        </div>
+
+        <div class="card kwai">
             <img src="img/cine-sky.jpg" alt="Cine Sky">
             <h3>CINE SKY</h3>
             <p>Resumos e Dicas no Kwai</p>
-            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn">VER CANAL</a>
+            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn">VER KWAI</a>
         </div>
 
-        <div class="card">
+        <div class="card kwai">
             <img src="img/narrando.jpg" alt="Narrando pra vc">
             <h3>NARRANDO PRA VC</h3>
             <p>Histórias e Edições Únicas</p>
-            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn">VER CANAL</a>
+            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn">VER KWAI</a>
         </div>
+    </div>
 
-        <div class="card">
-            <img src="img/movie-pixel.jpg" alt="Movie Pixel">
-            <h3>MOVIE PIXEL</h3>
-            <p>TikTok & YouTube de Filmes</p>
-            <a href="https://www.tiktok.com/@moviepixelofc" class="btn">VER TIKTOK</a>
+    <h2 class="section-title">PARCERIA</h2>
+    
+    <div class="container" style="display: flex; justify-content: center;">
+        <div class="card telegram parceria" style="max-width: 300px; width: 100%;">
+            <img src="img/apk-bugado.jpg" alt="APK Bugado">
+            <h3>APK BUGADO</h3>
+            <p>Parceiro Oficial</p>
+            <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn">ACESSAR APK</a>
         </div>
     </div>
 
