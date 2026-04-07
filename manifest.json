@@ -1,0 +1,16 @@
+{
+  "name": "StartStatic Hub",
+  "short_name": "StartStatic",
+  "description": "Hub Premium de Páginas Estáticas e Parceiros",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050810",
+  "theme_color": "#00ff88",
+  "icons": [
+    {
+      "src": "img/startstatic-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
