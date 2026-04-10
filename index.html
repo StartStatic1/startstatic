@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STARTSTATIC | ULTRA HUB</title>
+    <title>STARTSTATIC | Tecnologia e Entretenimento Digital</title>
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2866002449649160" crossorigin="anonymous"></script>
     
@@ -11,9 +11,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Service Worker Registrado!', reg))
-                    .catch(err => console.log('Erro no Service Worker:', err));
+                navigator.serviceWorker.register('sw.js').catch(err => console.log('Erro SW:', err));
             });
         }
     </script>
@@ -22,298 +20,159 @@
             --primary: #00ff88;
             --primary-glow: rgba(0, 255, 136, 0.6);
             --bg: #050810;
-            --card-bg: rgba(30, 41, 59, 0.5);
-            --yt: #ff0000;
-            --tk: #00f2fe;
-            --kw: #ff7e00;
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
+            --card-bg: rgba(30, 41, 59, 0.4);
         }
 
         body {
             background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, #0f172a 0%, transparent 50%);
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%);
             color: white;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            min-height: 100vh;
         }
 
-        /* ANIMAÇÃO DE ENTRADA */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        header { text-align: center; margin-bottom: 30px; max-width: 600px; }
+        .logo-principal { width: 100%; max-width: 350px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2); }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            animation: fadeIn 0.8s ease-out;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* ESTILO DA NOVA LOGO */
-        .logo-principal {
-            width: 100%;
-            max-width: 380px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.3); /* Brilho azulado combinando com a imagem */
-            margin-bottom: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header p {
-            opacity: 0.6;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        /* O BOTÃO ULTRA (GRADIENTE ANIMADO) */
-        .btn-ultra {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 90%;
-            max-width: 400px;
+        /* TEXTO PARA O ADSENSE */
+        .intro-text {
+            max-width: 800px;
+            text-align: justify;
+            background: var(--card-bg);
             padding: 20px;
-            margin: 10px auto 50px;
-            background: linear-gradient(45deg, #00ff88, #00bd65, #00ff88);
-            background-size: 200% auto;
-            color: #000;
-            text-decoration: none;
             border-radius: 15px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            box-shadow: 0 10px 30px var(--primary-glow);
-            transition: 0.3s;
-            animation: gradientMove 3s infinite linear, fadeIn 1s ease-out;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: #d1d5db;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
-        .btn-ultra:active { transform: scale(0.95); }
-
-        /* SEÇÕES */
         .section-label {
-            width: 100%;
-            max-width: 1000px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            width: 100%; max-width: 1000px;
+            font-size: 0.9rem; font-weight: 700; color: var(--primary);
+            text-transform: uppercase; letter-spacing: 2px;
+            margin: 40px 0 20px; display: flex; align-items: center; gap: 15px;
         }
+        .section-label::after { content: ""; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--primary), transparent); }
 
-        .section-label::after {
-            content: "";
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--primary), transparent);
-        }
-
-        /* GRID DE CARDS COM EFEITO GLASS */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            width: 100%;
-            max-width: 1000px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; width: 100%; max-width: 1000px;
         }
 
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 20px 10px;
-            text-align: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeIn 1.2s ease-out;
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            transform: translateY(-10px);
-        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        .card img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 2px solid transparent;
-            padding: 3px;
-            background-color: #000;
-        }
-
-        /* BORDAS NEON POR TIPO */
-        .yt img { border-color: var(--yt); box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
-        .tk img { border-color: var(--tk); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
-        .kw img { border-color: var(--kw); box-shadow: 0 0 15px rgba(255, 126, 0, 0.3); }
-
-        .card h3 {
-            font-size: 1rem;
-            margin: 5px 0;
-            font-weight: 800;
-        }
-
-        .card p {
-            font-size: 0.75rem;
-            opacity: 0.5;
-            margin-bottom: 15px;
-            height: 30px;
-        }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-header img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); }
+        
+        .card h3 { margin: 0; font-size: 1.1rem; color: #fff; }
+        .card p { font-size: 0.85rem; color: #94a3b8; margin: 10px 0; }
 
         .btn-card {
-            display: block;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: block; width: 100%; padding: 12px;
+            background: rgba(255,255,255,0.05); color: #fff;
+            text-decoration: none; border-radius: 10px;
+            text-align: center; font-weight: 700; font-size: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
         }
+        .card:hover .btn-card { background: var(--primary); color: #000; }
 
-        .card:hover .btn-card {
-            background: #fff;
-            color: #000;
-        }
-
-        /* PARCERIA ULTRA */
-        .partner-area {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .partner-card {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 0, 0, 0.5));
-            border: 1px solid var(--primary);
-            width: 100%;
-            max-width: 400px;
-            border-radius: 30px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partner-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 20px var(--primary-glow);
-            margin-bottom: 20px;
-        }
-
-        .btn-partner {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: var(--primary);
-            color: #000;
-            text-decoration: none;
-            border-radius: 15px;
-            font-weight: 900;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px var(--primary-glow);
-            transition: 0.3s;
-        }
-        
-        .btn-partner:hover {
-            transform: scale(1.05);
-        }
-
+        footer { margin-top: 60px; padding-bottom: 30px; opacity: 0.4; font-size: 0.7rem; text-align: center; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="img/startstatic-logo.jpg" alt="StartStatic Logo" class="logo-principal">
-        <p>PREMIUM STATIC PAGES</p>
+        <img src="img/startstatic-logo.jpg" alt="StartStatic Hub" class="logo-principal">
+        <h1 style="font-size: 1.5rem; margin-top: 15px;">Portal StartStatic</h1>
     </header>
 
-    <a href="https://t.me/+c7lvKrn4l-8xNTQ5" class="btn-ultra">
-        🚀 ACESSAR O GRUPO
-    </a>
+    <div class="intro-text">
+        <p>Bem-vindo ao <strong>StartStatic Hub</strong>, sua plataforma centralizada de curadoria digital. Em 2026, a fragmentação de conteúdo tornou-se um desafio para usuários que buscam entretenimento de qualidade. Nossa missão é filtrar e organizar o melhor do cinema, tecnologia e redes sociais em um único ecossistema fluido e otimizado.</p>
+        <p>Abaixo, você encontrará nossos canais oficiais de distribuição de conteúdo, onde aplicamos técnicas avançadas de edição e narrativa para levar a melhor experiência visual aos nossos seguidores em diversas plataformas.</p>
+    </div>
 
-    <div class="section-label">Nossos Canais</div>
+    <div class="section-label">Ecossistema de Conteúdo</div>
 
     <div class="grid">
-        <div class="card yt">
-            <img src="img/a1-filmes.jpg" alt="A1 Filmes">
-            <h3>A1 FILMES</h3>
-            <p>Cinema de Elite no YouTube</p>
-            <a href="https://youtube.com/@a1filmesofc?si=7w5iYmJevjk-WPQZ" class="btn-card">INSCREVER-SE</a>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/a1-filmes.jpg" alt="A1 Filmes">
+                <div>
+                    <h3>A1 FILMES</h3>
+                    <small style="color: #ff0000;">YouTube Premium</small>
+                </div>
+            </div>
+            <p>Análises cinematográficas e críticas de lançamentos. Um guia completo para quem busca o melhor do cinema mundial com produção de alta qualidade.</p>
+            <a href="https://youtube.com/@a1filmesofc" class="btn-card">ACESSAR CANAL</a>
         </div>
 
-        <div class="card tk">
-            <img src="img/movie-pixel.jpg" alt="Movie Pixel">
-            <h3>MOVIE PIXEL</h3>
-            <p>O seu canal de filmes</p>
-            <a href="https://www.tiktok.com/@moviepixelofc" class="btn-card">SEGUIR AGORA</a>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/movie-pixel.jpg" alt="Movie Pixel">
+                <div>
+                    <h3>MOVIE PIXEL</h3>
+                    <small style="color: #00f2fe;">Short-form Trends</small>
+                </div>
+            </div>
+            <p>O melhor do entretenimento rápido. Edições dinâmicas focadas na experiência mobile, trazendo os destaques do mundo audiovisual diariamente.</p>
+            <a href="https://www.tiktok.com/@moviepixelofc" class="btn-card">SEGUIR NO TIKTOK</a>
         </div>
 
-        <div class="card kw">
-            <img src="img/cine-sky.jpg" alt="Cine Sky">
-            <h3>CINE SKY</h3>
-            <p>Resumos Épicos no Kwai</p>
-            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn-card">VER CANAL</a>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/cine-sky.jpg" alt="Cine Sky">
+                <div>
+                    <h3>CINE SKY</h3>
+                    <small style="color: #ff7e00;">Micro-Storytelling</small>
+                </div>
+            </div>
+            <p>Especializado em resumos épicos e narrativas envolventes. Conteúdo otimizado para plataformas de crescimento rápido com foco em engajamento.</p>
+            <a href="https://k.kwai.com/u/@CineSky/4AbDGCAs" class="btn-card">VER NO KWAI</a>
         </div>
 
-        <div class="card kw">
-            <img src="img/narrando.jpg" alt="Narrando pra vc">
-            <h3>NARRANDO PRA VC</h3>
-            <p>Histórias que prendem</p>
-            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn-card">VER CANAL</a>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/narrando.jpg" alt="Narrando pra vc">
+                <div>
+                    <h3>NARRANDO PRA VC</h3>
+                    <small style="color: #ff7e00;">Digital Stories</small>
+                </div>
+            </div>
+            <p>Histórias que prendem a atenção. Um canal dedicado à arte da narração, explorando contos e fatos curiosos do mundo moderno.</p>
+            <a href="https://k.kwai.com/u/@Narrandopravc/wC6tGZYN" class="btn-card">EXPLORAR HISTÓRIAS</a>
         </div>
     </div>
 
-    <div class="section-label">Parceiro Oficial</div>
+    <div class="section-label">Desenvolvimento e Mods</div>
 
-    <div class="partner-area">
-        <div class="partner-card">
-            <img src="img/apk-bugado.jpg" alt="APK Bugado">
-            <h2 style="margin: 0; font-size: 1.8rem; color: var(--primary);">APK BUGADO</h2>
-            <p style="opacity: 0.7; margin-top: 5px;">Mods, Apps e Tecnologia</p>
-            <a href="https://t.me/ApkBugado" class="btn-partner">ACESSAR AGORA</a>
+    <div class="card" style="max-width: 1000px; width: 100%; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <img src="img/apk-bugado.jpg" alt="APK Bugado" style="width: 80px; height: 80px; border-radius: 15px;">
+        <div style="flex: 1; min-width: 250px;">
+            <h3>APK BUGADO</h3>
+            <p>Nossa comunidade focada em tecnologia, modificações de aplicativos e tutoriais avançados para Android. O ponto de encontro para usuários Power User.</p>
         </div>
+        <a href="https://t.me/ApkBugado" class="btn-card" style="max-width: 200px;">ENTRAR NO GRUPO</a>
     </div>
 
-    <footer style="margin: 50px 0 20px; opacity: 0.3; font-size: 0.7rem;">
-        &copy; 2026 STARTSTATIC - BEYOND ULTRA EDITION
+    <footer>
+        <p>&copy; 2026 StartStatic - Beyond Ultra Edition<br>
+        Tecnologia, Conteúdo e Otimização Digital.</p>
     </footer>
 
 </body>
